@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.hecs.generator.dao.InsuranceStaffMapper" >
+  <resultMap id="BaseResultMap" type="org.hecs.generator.model.InsuranceStaff" >
+    <id column="id" property="id" jdbcType="OTHER" />
+    <result column="user_id" property="userId" jdbcType="OTHER" />
+    <result column="open_id" property="openId" jdbcType="OTHER" />
+    <result column="phone" property="phone" jdbcType="OTHER" />
+    <result column="insurance_staff_status" property="insuranceStaffStatus" jdbcType="OTHER" />
+    <result column="create_time" property="createTime" jdbcType="OTHER" />
+    <result column="update_time" property="updateTime" jdbcType="OTHER" />
+    <result column="create_person" property="createPerson" jdbcType="OTHER" />
+    <result column="update_person" property="updatePerson" jdbcType="OTHER" />
+    <result column="emp_name" property="empName" jdbcType="OTHER" />
+    <result column="emp_no" property="empNo" jdbcType="OTHER" />
+    <result column="emp_entry_date" property="empEntryDate" jdbcType="OTHER" />
+    <result column="emp_birthday" property="empBirthday" jdbcType="OTHER" />
+    <result column="nationality" property="nationality" jdbcType="OTHER" />
+    <result column="nation" property="nation" jdbcType="OTHER" />
+    <result column="sex" property="sex" jdbcType="OTHER" />
+    <result column="mobile_phone" property="mobilePhone" jdbcType="OTHER" />
+    <result column="contract_start_date" property="contractStartDate" jdbcType="OTHER" />
+    <result column="contract_end_date" property="contractEndDate" jdbcType="OTHER" />
+    <result column="card_type" property="cardType" jdbcType="OTHER" />
+    <result column="card_no" property="cardNo" jdbcType="OTHER" />
+    <result column="card_vaild_startdate" property="cardVaildStartdate" jdbcType="OTHER" />
+    <result column="card_vaild_enddate" property="cardVaildEnddate" jdbcType="OTHER" />
+    <result column="card_imgurl" property="cardImgurl" jdbcType="OTHER" />
+    <result column="address_detail" property="addressDetail" jdbcType="OTHER" />
+    <result column="link_phone" property="linkPhone" jdbcType="OTHER" />
+    <result column="email" property="email" jdbcType="OTHER" />
+    <result column="other_contact_way" property="otherContactWay" jdbcType="OTHER" />
+    <result column="other_contact_no" property="otherContactNo" jdbcType="OTHER" />
+    <result column="is_locked" property="isLocked" jdbcType="OTHER" />
+    <result column="org_id" property="orgId" jdbcType="OTHER" />
+    <result column="dept_id" property="deptId" jdbcType="OTHER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, open_id, phone, insurance_staff_status, create_time, update_time, create_person, 
+    update_person, emp_name, emp_no, emp_entry_date, emp_birthday, nationality, nation, 
+    sex, mobile_phone, contract_start_date, contract_end_date, card_type, card_no, card_vaild_startdate, 
+    card_vaild_enddate, card_imgurl, address_detail, link_phone, email, other_contact_way, 
+    other_contact_no, is_locked, org_id, dept_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Object" >
+    select 
+    <include refid="Base_Column_List" />
+    from insurance_staff
+    where id = #{id,jdbcType=OTHER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Object" >
+    delete from insurance_staff
+    where id = #{id,jdbcType=OTHER}
+  </delete>
+  <insert id="insert" parameterType="org.hecs.generator.model.InsuranceStaff" >
+    insert into insurance_staff (id, user_id, open_id, 
+      phone, insurance_staff_status, create_time, 
+      update_time, create_person, update_person, 
+      emp_name, emp_no, emp_entry_date, 
+      emp_birthday, nationality, nation, 
+      sex, mobile_phone, contract_start_date, 
+      contract_end_date, card_type, card_no, 
+      card_vaild_startdate, card_vaild_enddate, card_imgurl, 
+      address_detail, link_phone, email, 
+      other_contact_way, other_contact_no, is_locked, 
+      org_id, dept_id)
+    values (#{id,jdbcType=OTHER}, #{userId,jdbcType=OTHER}, #{openId,jdbcType=OTHER}, 
+      #{phone,jdbcType=OTHER}, #{insuranceStaffStatus,jdbcType=OTHER}, #{createTime,jdbcType=OTHER}, 
+      #{updateTime,jdbcType=OTHER}, #{createPerson,jdbcType=OTHER}, #{updatePerson,jdbcType=OTHER}, 
+      #{empName,jdbcType=OTHER}, #{empNo,jdbcType=OTHER}, #{empEntryDate,jdbcType=OTHER}, 
+      #{empBirthday,jdbcType=OTHER}, #{nationality,jdbcType=OTHER}, #{nation,jdbcType=OTHER}, 
+      #{sex,jdbcType=OTHER}, #{mobilePhone,jdbcType=OTHER}, #{contractStartDate,jdbcType=OTHER}, 
+      #{contractEndDate,jdbcType=OTHER}, #{cardType,jdbcType=OTHER}, #{cardNo,jdbcType=OTHER}, 
+      #{cardVaildStartdate,jdbcType=OTHER}, #{cardVaildEnddate,jdbcType=OTHER}, #{cardImgurl,jdbcType=OTHER}, 
+      #{addressDetail,jdbcType=OTHER}, #{linkPhone,jdbcType=OTHER}, #{email,jdbcType=OTHER}, 
+      #{otherContactWay,jdbcType=OTHER}, #{otherContactNo,jdbcType=OTHER}, #{isLocked,jdbcType=OTHER}, 
+      #{orgId,jdbcType=OTHER}, #{deptId,jdbcType=OTHER})
+  </insert>
+  <insert id="insertSelective" parameterType="org.hecs.generator.model.InsuranceStaff" >
+    insert into insurance_staff
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="openId != null" >
+        open_id,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="insuranceStaffStatus != null" >
+        insurance_staff_status,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="createPerson != null" >
+        create_person,
+      </if>
+      <if test="updatePerson != null" >
+        update_person,
+      </if>
+      <if test="empName != null" >
+        emp_name,
+      </if>
+      <if test="empNo != null" >
+        emp_no,
+      </if>
+      <if test="empEntryDate != null" >
+        emp_entry_date,
+      </if>
+      <if test="empBirthday != null" >
+        emp_birthday,
+      </if>
+      <if test="nationality != null" >
+        nationality,
+      </if>
+      <if test="nation != null" >
+        nation,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="mobilePhone != null" >
+        mobile_phone,
+      </if>
+      <if test="contractStartDate != null" >
+        contract_start_date,
+      </if>
+      <if test="contractEndDate != null" >
+        contract_end_date,
+      </if>
+      <if test="cardType != null" >
+        card_type,
+      </if>
+      <if test="cardNo != null" >
+        card_no,
+      </if>
+      <if test="cardVaildStartdate != null" >
+        card_vaild_startdate,
+      </if>
+      <if test="cardVaildEnddate != null" >
+        card_vaild_enddate,
+      </if>
+      <if test="cardImgurl != null" >
+        card_imgurl,
+      </if>
+      <if test="addressDetail != null" >
+        address_detail,
+      </if>
+      <if test="linkPhone != null" >
+        link_phone,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="otherContactWay != null" >
+        other_contact_way,
+      </if>
+      <if test="otherContactNo != null" >
+        other_contact_no,
+      </if>
+      <if test="isLocked != null" >
+        is_locked,
+      </if>
+      <if test="orgId != null" >
+        org_id,
+      </if>
+      <if test="deptId != null" >
+        dept_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=OTHER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=OTHER},
+      </if>
+      <if test="openId != null" >
+        #{openId,jdbcType=OTHER},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=OTHER},
+      </if>
+      <if test="insuranceStaffStatus != null" >
+        #{insuranceStaffStatus,jdbcType=OTHER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=OTHER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=OTHER},
+      </if>
+      <if test="createPerson != null" >
+        #{createPerson,jdbcType=OTHER},
+      </if>
+      <if test="updatePerson != null" >
+        #{updatePerson,jdbcType=OTHER},
+      </if>
+      <if test="empName != null" >
+        #{empName,jdbcType=OTHER},
+      </if>
+      <if test="empNo != null" >
+        #{empNo,jdbcType=OTHER},
+      </if>
+      <if test="empEntryDate != null" >
+        #{empEntryDate,jdbcType=OTHER},
+      </if>
+      <if test="empBirthday != null" >
+        #{empBirthday,jdbcType=OTHER},
+      </if>
+      <if test="nationality != null" >
+        #{nationality,jdbcType=OTHER},
+      </if>
+      <if test="nation != null" >
+        #{nation,jdbcType=OTHER},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=OTHER},
+      </if>
+      <if test="mobilePhone != null" >
+        #{mobilePhone,jdbcType=OTHER},
+      </if>
+      <if test="contractStartDate != null" >
+        #{contractStartDate,jdbcType=OTHER},
+      </if>
+      <if test="contractEndDate != null" >
+        #{contractEndDate,jdbcType=OTHER},
+      </if>
+      <if test="cardType != null" >
+        #{cardType,jdbcType=OTHER},
+      </if>
+      <if test="cardNo != null" >
+        #{cardNo,jdbcType=OTHER},
+      </if>
+      <if test="cardVaildStartdate != null" >
+        #{cardVaildStartdate,jdbcType=OTHER},
+      </if>
+      <if test="cardVaildEnddate != null" >
+        #{cardVaildEnddate,jdbcType=OTHER},
+      </if>
+      <if test="cardImgurl != null" >
+        #{cardImgurl,jdbcType=OTHER},
+      </if>
+      <if test="addressDetail != null" >
+        #{addressDetail,jdbcType=OTHER},
+      </if>
+      <if test="linkPhone != null" >
+        #{linkPhone,jdbcType=OTHER},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=OTHER},
+      </if>
+      <if test="otherContactWay != null" >
+        #{otherContactWay,jdbcType=OTHER},
+      </if>
+      <if test="otherContactNo != null" >
+        #{otherContactNo,jdbcType=OTHER},
+      </if>
+      <if test="isLocked != null" >
+        #{isLocked,jdbcType=OTHER},
+      </if>
+      <if test="orgId != null" >
+        #{orgId,jdbcType=OTHER},
+      </if>
+      <if test="deptId != null" >
+        #{deptId,jdbcType=OTHER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.hecs.generator.model.InsuranceStaff" >
+    update insurance_staff
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=OTHER},
+      </if>
+      <if test="openId != null" >
+        open_id = #{openId,jdbcType=OTHER},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=OTHER},
+      </if>
+      <if test="insuranceStaffStatus != null" >
+        insurance_staff_status = #{insuranceStaffStatus,jdbcType=OTHER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=OTHER},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=OTHER},
+      </if>
+      <if test="createPerson != null" >
+        create_person = #{createPerson,jdbcType=OTHER},
+      </if>
+      <if test="updatePerson != null" >
+        update_person = #{updatePerson,jdbcType=OTHER},
+      </if>
+      <if test="empName != null" >
+        emp_name = #{empName,jdbcType=OTHER},
+      </if>
+      <if test="empNo != null" >
+        emp_no = #{empNo,jdbcType=OTHER},
+      </if>
+      <if test="empEntryDate != null" >
+        emp_entry_date = #{empEntryDate,jdbcType=OTHER},
+      </if>
+      <if test="empBirthday != null" >
+        emp_birthday = #{empBirthday,jdbcType=OTHER},
+      </if>
+      <if test="nationality != null" >
+        nationality = #{nationality,jdbcType=OTHER},
+      </if>
+      <if test="nation != null" >
+        nation = #{nation,jdbcType=OTHER},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=OTHER},
+      </if>
+      <if test="mobilePhone != null" >
+        mobile_phone = #{mobilePhone,jdbcType=OTHER},
+      </if>
+      <if test="contractStartDate != null" >
+        contract_start_date = #{contractStartDate,jdbcType=OTHER},
+      </if>
+      <if test="contractEndDate != null" >
+        contract_end_date = #{contractEndDate,jdbcType=OTHER},
+      </if>
+      <if test="cardType != null" >
+        card_type = #{cardType,jdbcType=OTHER},
+      </if>
+      <if test="cardNo != null" >
+        card_no = #{cardNo,jdbcType=OTHER},
+      </if>
+      <if test="cardVaildStartdate != null" >
+        card_vaild_startdate = #{cardVaildStartdate,jdbcType=OTHER},
+      </if>
+      <if test="cardVaildEnddate != null" >
+        card_vaild_enddate = #{cardVaildEnddate,jdbcType=OTHER},
+      </if>
+      <if test="cardImgurl != null" >
+        card_imgurl = #{cardImgurl,jdbcType=OTHER},
+      </if>
+      <if test="addressDetail != null" >
+        address_detail = #{addressDetail,jdbcType=OTHER},
+      </if>
+      <if test="linkPhone != null" >
+        link_phone = #{linkPhone,jdbcType=OTHER},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=OTHER},
+      </if>
+      <if test="otherContactWay != null" >
+        other_contact_way = #{otherContactWay,jdbcType=OTHER},
+      </if>
+      <if test="otherContactNo != null" >
+        other_contact_no = #{otherContactNo,jdbcType=OTHER},
+      </if>
+      <if test="isLocked != null" >
+        is_locked = #{isLocked,jdbcType=OTHER},
+      </if>
+      <if test="orgId != null" >
+        org_id = #{orgId,jdbcType=OTHER},
+      </if>
+      <if test="deptId != null" >
+        dept_id = #{deptId,jdbcType=OTHER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=OTHER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.hecs.generator.model.InsuranceStaff" >
+    update insurance_staff
+    set user_id = #{userId,jdbcType=OTHER},
+      open_id = #{openId,jdbcType=OTHER},
+      phone = #{phone,jdbcType=OTHER},
+      insurance_staff_status = #{insuranceStaffStatus,jdbcType=OTHER},
+      create_time = #{createTime,jdbcType=OTHER},
+      update_time = #{updateTime,jdbcType=OTHER},
+      create_person = #{createPerson,jdbcType=OTHER},
+      update_person = #{updatePerson,jdbcType=OTHER},
+      emp_name = #{empName,jdbcType=OTHER},
+      emp_no = #{empNo,jdbcType=OTHER},
+      emp_entry_date = #{empEntryDate,jdbcType=OTHER},
+      emp_birthday = #{empBirthday,jdbcType=OTHER},
+      nationality = #{nationality,jdbcType=OTHER},
+      nation = #{nation,jdbcType=OTHER},
+      sex = #{sex,jdbcType=OTHER},
+      mobile_phone = #{mobilePhone,jdbcType=OTHER},
+      contract_start_date = #{contractStartDate,jdbcType=OTHER},
+      contract_end_date = #{contractEndDate,jdbcType=OTHER},
+      card_type = #{cardType,jdbcType=OTHER},
+      card_no = #{cardNo,jdbcType=OTHER},
+      card_vaild_startdate = #{cardVaildStartdate,jdbcType=OTHER},
+      card_vaild_enddate = #{cardVaildEnddate,jdbcType=OTHER},
+      card_imgurl = #{cardImgurl,jdbcType=OTHER},
+      address_detail = #{addressDetail,jdbcType=OTHER},
+      link_phone = #{linkPhone,jdbcType=OTHER},
+      email = #{email,jdbcType=OTHER},
+      other_contact_way = #{otherContactWay,jdbcType=OTHER},
+      other_contact_no = #{otherContactNo,jdbcType=OTHER},
+      is_locked = #{isLocked,jdbcType=OTHER},
+      org_id = #{orgId,jdbcType=OTHER},
+      dept_id = #{deptId,jdbcType=OTHER}
+    where id = #{id,jdbcType=OTHER}
+  </update>
+</mapper>

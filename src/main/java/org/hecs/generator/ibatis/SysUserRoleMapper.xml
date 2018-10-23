@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.hecs.generator.dao.SysUserRoleMapper" >
+  <resultMap id="BaseResultMap" type="org.hecs.generator.model.SysUserRole" >
+    <id column="user_id" property="userId" jdbcType="OTHER" />
+    <id column="role_id" property="roleId" jdbcType="OTHER" />
+    <result column="create_person" property="createPerson" jdbcType="OTHER" />
+    <result column="create_time" property="createTime" jdbcType="OTHER" />
+    <result column="update_person" property="updatePerson" jdbcType="OTHER" />
+    <result column="update_time" property="updateTime" jdbcType="OTHER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    user_id, role_id, create_person, create_time, update_person, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="org.hecs.generator.model.SysUserRoleKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user_role
+    where user_id = #{userId,jdbcType=OTHER}
+      and role_id = #{roleId,jdbcType=OTHER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="org.hecs.generator.model.SysUserRoleKey" >
+    delete from sys_user_role
+    where user_id = #{userId,jdbcType=OTHER}
+      and role_id = #{roleId,jdbcType=OTHER}
+  </delete>
+  <insert id="insert" parameterType="org.hecs.generator.model.SysUserRole" >
+    insert into sys_user_role (user_id, role_id, create_person, 
+      create_time, update_person, update_time
+      )
+    values (#{userId,jdbcType=OTHER}, #{roleId,jdbcType=OTHER}, #{createPerson,jdbcType=OTHER}, 
+      #{createTime,jdbcType=OTHER}, #{updatePerson,jdbcType=OTHER}, #{updateTime,jdbcType=OTHER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.hecs.generator.model.SysUserRole" >
+    insert into sys_user_role
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="roleId != null" >
+        role_id,
+      </if>
+      <if test="createPerson != null" >
+        create_person,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updatePerson != null" >
+        update_person,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=OTHER},
+      </if>
+      <if test="roleId != null" >
+        #{roleId,jdbcType=OTHER},
+      </if>
+      <if test="createPerson != null" >
+        #{createPerson,jdbcType=OTHER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=OTHER},
+      </if>
+      <if test="updatePerson != null" >
+        #{updatePerson,jdbcType=OTHER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=OTHER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.hecs.generator.model.SysUserRole" >
+    update sys_user_role
+    <set >
+      <if test="createPerson != null" >
+        create_person = #{createPerson,jdbcType=OTHER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=OTHER},
+      </if>
+      <if test="updatePerson != null" >
+        update_person = #{updatePerson,jdbcType=OTHER},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=OTHER},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=OTHER}
+      and role_id = #{roleId,jdbcType=OTHER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.hecs.generator.model.SysUserRole" >
+    update sys_user_role
+    set create_person = #{createPerson,jdbcType=OTHER},
+      create_time = #{createTime,jdbcType=OTHER},
+      update_person = #{updatePerson,jdbcType=OTHER},
+      update_time = #{updateTime,jdbcType=OTHER}
+    where user_id = #{userId,jdbcType=OTHER}
+      and role_id = #{roleId,jdbcType=OTHER}
+  </update>
+</mapper>
